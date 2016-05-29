@@ -6,6 +6,7 @@ var qypProxy = new DataProxy({
     createActivity: 'Activity.new',
     getDetail: 'Activity.summary',
     signupActivity: 'Activity.signup',
+    //editActivity: 'Activity.edit',
 });
 
 var commonJson = function* (ctx, name, params) {
@@ -15,7 +16,7 @@ var commonJson = function* (ctx, name, params) {
         errorMsg: '未知错误',
         data: null,
     }
-    console.log(params)
+   // console.log(params)
     var data = yield new Promise(function(resolve, reject){
         qypProxy[name](params)
             .done(function(data){
@@ -80,6 +81,12 @@ exports.check = function* () {
 exports.aboutus = function* () {
     yield this.render('activity/aboutus', {});
 };
+exports.edit = function* () {
+    yield this.render('activity/edit', {});
+};
+exports.review = function* () {
+    yield this.render('activity/review', {});
+};
 
 exports.detail = function* () {
     yield this.render('activity/detail', {});
@@ -90,6 +97,7 @@ exports.signup = function* () {
         //data: data,
     });
 };
+
 
 exports.signupSuccess = function* () {
     var ctx = this;
@@ -115,6 +123,10 @@ exports.signupActivity = function* () {
     var ctx = this;
     yield commonJson(ctx, 'signupActivity', ctx.request.body);
 }
+/*exports.editActivity = function* () {
+    var ctx = this;
+    yield commonJson(ctx, 'editActivity', ctx.request.body);
+}*/
 exports.detailActivity = function* () {
     var ctx = this;
     yield commonJson(ctx, 'getDetail', ctx.request.query);

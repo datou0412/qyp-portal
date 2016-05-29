@@ -63,7 +63,9 @@
             </div>
         </div>
     </form>
-    <a href="/activity/{{activityDetail.activityId}}/signup" class="btn btn-sm btn-sign qyp-btn">我要报名</a>
+    <div class="signupButton">
+        <a href="/activity/{{activityDetail.activityId}}/signup" class="btn btn-sm btn-sign qyp-btn">我要报名</a>
+    </div>
 </div>
 {{/block}}
 

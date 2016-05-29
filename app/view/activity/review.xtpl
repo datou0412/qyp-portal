@@ -1,0 +1,46 @@
+
+{{extend ("../layout/default-layout") }}
+
+{{#block ("content") }}
+<div ng-app="reviewApp" class="list container ">
+	<div  ng-controller="reviewCtrl" >
+
+	<div class="buttons">
+		<div class="pull-left">
+			<a href="" class="btn btn-default" ng-click="showList()">未审核1人</a>
+			<a href="" class="btn btn-default" ng-click="showList()">已通过1人</a>
+			<a href="" class="btn btn-default" ng-click="showList()">未通过1人</a>
+		</div>
+
+		<div class="pull-right sm-float">
+			<a href="" class="btn btn-primary">发送信息</a>
+		</div>
+	</div>
+	 <div ng-repeat="item in lists" class="item">
+
+   	<div class="profile">
+   		<h2>{{%{{item.name}}%}}</h2>
+   		<p>
+   			<span>{{%{{item.sex}}%}}</span>
+   			<span ng-switch="item.isSingle">
+   				<span ng-switch-when=true>单身</span>
+   				<span ng-switch-when=false> 非单身</span>
+   			</span>
+   			<span>{{%{{item.age}}%}}</span>
+   		</p>
+   	</div>
+
+   	<div class="status" ng-switch="item.signUpStatus"> 		
+   		<p ng-switch-when="nonCheck">未审核</p>
+   		<p ng-switch-when="noPass">未通过</p>
+   		<p ng-switch-when="pass">已通过</p>
+   	</div>
+
+   	<div class="review">
+   		<a href="pass"  data-id="{%{{item.memberId}}%}}" ng-click="setStatus($event)">通过</a>
+   		<a href="noPass"data-id="{%{{item.memberId}}%}}"  ng-click="setStatus($event)">不通过</a>
+   	</div>
+   </div>
+   </div>
+</div>
+{{/block}}

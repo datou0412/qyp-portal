@@ -17,6 +17,25 @@
   clear: both;
   margin: 15px 0px;
 }
+.list .item .profile {
+  width: 80px;
+  display: inline-block;
+}
+.list .item .status {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 20px;
+  vertical-align: top;
+}
+.list .item .review {
+  float: right;
+  width: 80px;
+  display: inline-block;
+}
+.list .item .review a {
+  display: block;
+  margin-top: 6px;
+}
 .list .item .img {
   display: inline-block;
 }
@@ -44,4 +63,33 @@
   float: right;
   width: 80px;
   margin-top: 30px;
+}
+.signupButton {
+  text-align: center;
+}
+.qyp-btn {
+  background-color: #FDDE62;
+  color: #333;
+}
+.btn-sign {
+  position: fixed;
+  bottom: 20px;
+}
+.buttons {
+  margin-bottom: 20px;
+  height: 40px;
+}
+.buttons .sm-float {
+  display: block;
+  float: left !important;
+  margin: 20px 0px;
+  clear: both;
+}
+@media (min-width: 758px) {
+  .buttons .sm-float {
+    display: inline-block;
+    float: right !important;
+    margin: 0px 0px;
+    clear: none;
+  }
 }

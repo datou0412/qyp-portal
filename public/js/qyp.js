@@ -86,6 +86,29 @@ $(document)
             }
         });
     })
+    .on('click', '#saveEdit', function (e) {
+        e.preventDefault();
+         
+            var params={};
+            params.activityId="1";
+            params.activityContent="1";
+            $.ajax({
+            url: '/ajax/activity/edit',
+            type: 'POST',
+            data: params,
+            success: function (result) {
+                if (result.success) {
+                    Qyp.alertSuccess('保存成功');
+                    
+                } else {
+                    Qyp.alertDanger(result.errorMsg || '保存失败');
+                }
+            }
+             });
+           
+        return false;
+        
+    })
 
 
 $('input[data-init="datepicker"]').datepicker({

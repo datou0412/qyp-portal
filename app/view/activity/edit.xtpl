@@ -1,0 +1,18 @@
+
+{{extend ("../layout/default-layout") }}
+
+{{#block ("content") }}
+<div >
+	<ol class="breadcrumb">
+	    <li><a href="/activity/list">活动</a></li>
+	    <li class="active">活动总结</li>
+	</ol>
+	<form class="form-horizontal" >
+		<div class="form-group">
+	        <div class="col-sm-offset-2 col-sm-8">
+	            <a href="#" class="btn btn-primary" id="saveEdit">保存总结</a>
+	        </div>
+	    </div>
+	</form>
+</div>
+{{/block}}

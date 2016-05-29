@@ -36,8 +36,9 @@
     "xtpl": "3.1.9"
   },
   "devDependencies": {
-    "supertest": "^0.12.1",
+    "gulp-watch": "^4.3.6",
     "mocha": "^1.18.2",
-    "should": "3.3.2"
+    "should": "3.3.2",
+    "supertest": "^0.12.1"
   }
 }

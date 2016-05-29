@@ -39,6 +39,62 @@
 
 }(jQuery));
 
+
+(function ($) {
+    var app = angular.module('reviewApp', []);
+    app.controller('reviewCtrl', function($scope,$http) {
+        //$scope.detail="fsdf";
+        var api="/activity/getReview";  
+         getList();
+         var memberId="1";
+         var params={};
+         params._ = new Date().getTime();  
+         params.memberId=memberId;
+         $scope.lists=[{"name":"书香","age":"18","isSingle":false,"sex":"女","signUpStatus":"noPass"},{"name":1},{"name":1},{"name":1},{"name":1}]
+          function getList(){
+             $.ajax({
+                    url:api,
+                    data:params,
+                    type:"GET",
+                    success:function(data){
+                        console.log(data)
+                         $scope.lists=data.data;
+                    }
+                    }
+                
+                )
+        }
+        $scope.setStatus=function(e){
+            var target=$(e.currentTarget);
+            var status=target.attr("href");
+            var params={};
+            params.isPass=status;
+            params.memberId=target.attr("data-id");
+            params.activityId=activityId;
+            $.ajax({
+                    url:api,
+                    data:params,
+                    type:"GET",
+                    success:function(data){
+                        //console.log(data)
+                        getList();
+                        //重刷列表 更新状态
+                    }
+                    }
+                
+                )
+            e.preventDefault();
+            return false;
+        }
+
+    });
+
+
+}(jQuery));
+
+
+
+
 (function ($) {
     var app = angular.module('listApp', []);
     app.controller('listController', function($scope,$http) {

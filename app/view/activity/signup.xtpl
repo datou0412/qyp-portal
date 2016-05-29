@@ -9,6 +9,12 @@
     <li class="active">报名</li>
 </ol>
 <form class="form-horizontal" >
+    <div class="form-group" style="margin-bottom:0px;">
+        
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="alert alert-danger"><strong>请注意</strong>，如果替别人报名，请单独再报一次。</div>
+        </div>
+    </div>
     <div class="form-group">
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名活动</label>
         <div class="col-sm-8">
