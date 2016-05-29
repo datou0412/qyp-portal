@@ -82,9 +82,11 @@ app.use(router(app));
 //应用路由
 var homeRouter = require('./app/router/home-router');
 var activityRouter = require('./app/router/activity-router');
+var uploaderRouter = require('./app/router/uploader-router');
 
 homeRouter(app);
 activityRouter(app);
+uploaderRouter(app);
 
 //app.listen(config.port);
 //console.log('[INFO] Server listening on port ' + config.port);
