@@ -78,6 +78,7 @@
 .btn-sign {
   position: fixed;
   bottom: 20px;
+  margin-left: -35px;
 }
 .buttons {
   margin-bottom: 20px;

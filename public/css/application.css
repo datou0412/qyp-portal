@@ -59,6 +59,9 @@ body {
 .qyp-top .navbar-nav li.dropdown .dropdown-toggle:hover {
   color: #FDDE62;
 }
+.qyp-content {
+  padding: 0;
+}
 .qyp-content .content-wrap {
   padding: 20px;
   background-color: white;
