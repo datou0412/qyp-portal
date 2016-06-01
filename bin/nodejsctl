@@ -1,0 +1,110 @@
+#!/bin/bash
+
+export PATH=/opt/taobao/install/node.js/bin:/bin:/usr/bin:$PATH
+
+cd `dirname $0`/..
+BIN_HOME=`pwd`
+echo ${BIN_HOME}
+BASE_HOME=${BIN_HOME}
+PROJECT_NAME=`basename ${BASE_HOME}`
+PROJECT_ROOT=${BASE_HOME}
+PROJECT_START=bin/app.js
+NODEJS_BIN=node
+STDOUT_LOG=${BASE_HOME}/../log/nodejs.log
+ulimit -c unlimited
+
+export ENABLE_NODE_LOG=YES
+export NODE_LOG_DIR=${BASE_HOME}/logs/
+
+
+if [[ -d ${BASE_HOME}/target/nodejs ]]; then
+    NODEJS_APP_DIR=${BASE_HOME}/target/nodejs
+else
+    NODEJS_APP_DIR=${BASE_HOME}/target/${PROJECT_NAME}
+fi
+
+CUSTOM_NODEJS_BIN=${NODEJS_APP_DIR}/node_modules/node/bin/node
+if [[ -f ${CUSTOM_NODEJS_BIN} ]]; then
+  NODEJS_BIN=${CUSTOM_NODEJS_BIN}
+  chmod a+x ${NODEJS_BIN} # In case it's not executable
+fi
+
+
+if [[ -f ${NODEJS_APP_DIR}/bin/.env ]]; then
+    export NODE_ENV=`cat ${NODEJS_APP_DIR}/bin/.env`
+else
+    export NODE_ENV="production"
+fi
+
+
+
+PROG_NAME=$0
+ACTION=$1
+usage() {
+    echo "Usage: $PROG_NAME {start|stop|restart}"
+    exit 1;
+}
+
+
+if [[ $# -lt 1 ]]; then
+    usage
+fi
+
+function get_pid {
+    PID=`ps ax | grep ${NODEJS_BIN} | grep -v grep | grep ${PROJECT_START} | awk '{print $1}'`
+}
+
+function prepare {
+    get_pid
+}
+
+
+
+#start nodejs
+start(){
+    prepare
+    if [[ -z $PID ]]; then
+
+        echo "Using node/iojs@`${NODEJS_BIN} -v`(${NODEJS_BIN})."
+        cd ${PROJECT_ROOT}
+        nohup ${NODEJS_BIN} --harmony bin/app.js >> $STDOUT_LOG 2>&1 &
+        sleep 5
+
+        get_pid
+        echo "Start nodejs success. PID=$PID"
+    else
+        echo "${PROJECT_NAME} is already running, PID=$PID"
+    fi
+}
+
+stop(){
+
+    prepare
+
+    if [[ ! -z "$PID" ]]; then
+        echo "Waiting ${PROJECT_NAME} stop for 5s ..."
+
+        kill -15 $PID
+        sleep 5
+
+    else
+        echo "${PROJECT_NAME} is not running"
+    fi
+}
+
+
+case "$ACTION" in
+    start)
+        start
+    ;;
+    stop)
+        stop
+    ;;
+    restart)
+        stop
+        start
+    ;;
+    *)
+        usage
+    ;;
+esac
