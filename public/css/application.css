@@ -15,6 +15,7 @@ body {
   background-color: #3B3B3C;
   border-bottom: 0;
   height: 70px;
+  margin-bottom: 0;
 }
 .qyp-top .navbar-brand {
   padding: 25px 40px 25px 15px;
@@ -57,9 +58,6 @@ body {
 }
 .qyp-top .navbar-nav li.dropdown .dropdown-toggle:hover {
   color: #FDDE62;
-}
-.qyp-content {
-  padding-top: 90px;
 }
 .qyp-content .content-wrap {
   padding: 20px;
@@ -162,9 +160,11 @@ body {
   bottom: 0px;
 }
 .qyp-content form {
-  margin-top: 20px;
   background-color: white;
   padding: 20px;
+}
+.qyp-content .breadcrumb {
+  margin-top: 20px;
 }
 .qyp-content .status-label {
   font-size: 120px;

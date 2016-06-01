@@ -1,7 +1,7 @@
 {{extend ("../layout/default-layout") }}
 
 {{#block ("content") }}
-<div class="detail container" ng-app="detailApp">
+<div class="detail" ng-app="detailApp">
     <form  class="form-horizontal" ng-controller="detailController">
         <div class="form-group">
             <label class="col-md-2 col-sm-5 control-label">活动名称：</label>

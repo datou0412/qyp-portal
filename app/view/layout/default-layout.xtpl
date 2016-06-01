@@ -11,7 +11,7 @@
         {{{block ('page-css-links')}}}
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top qyp-top">
+        <nav class="navbar navbar-default qyp-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
