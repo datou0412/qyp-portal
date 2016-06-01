@@ -20,7 +20,7 @@
             "method": "post",
             "contentType": "application/json",
             "urls": {
-                "prod": "http://127.0.0.1:8091/activity/create"
+                "prod": "http://182.92.105.100:8091/activity/create"
             },
             "encoding": "utf8"
         },
@@ -29,7 +29,7 @@
             "id": "Activity.summary",
             "type": "http",
             "urls": {
-                "prod": "http://127.0.0.1:8091/activity/summary"
+                "prod": "http://182.92.105.100:8091/activity/summary"
             },
             "encoding": "utf8"
         },
@@ -40,7 +40,7 @@
             "method": "post",
             "contentType": "application/json",
             "urls": {
-                "prod": "http://127.0.0.1:8091/activity/signUp"
+                "prod": "http://182.92.105.100:8091/activity/signUp"
             },
             "encoding": "utf8"
         }

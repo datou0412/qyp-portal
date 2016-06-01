@@ -8,6 +8,10 @@
 .detail .control-label {
   float: left;
 }
+.detail img {
+  width: 100% !important;
+  height: auto !important;
+}
 @media (min-width: 758px) {
   .detail .control-detail {
     margin-top: 8px;
