@@ -128,7 +128,6 @@ if ($('textarea[name="activityDescription"]').length) {
             resizeType : 1,
             allowPreviewEmoticons : true,
             allowImageUpload : true,
-            cssPath : '../plugins/code/prettify.css',
             uploadJson : '/uploader/upload',
             //fileManagerJson : '../jsp/file_manager_json.jsp',
             items : [
