@@ -109,6 +109,11 @@ $(document)
         return false;
         
     })
+    .on('click', '.story', function (e) {
+        e.preventDefault();
+        var id  = $(this).data('id');
+        location.href = '/activity/' + id + '/detail'
+    })
 
 
 $('input[data-init="datepicker"]').datepicker({

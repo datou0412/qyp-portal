@@ -24,7 +24,7 @@ module.exports = function (app, option) {
     var extname = option.extname || 'xtpl';
 
     function *render(path, data, opt) {
-        data = _.extend(this.locals, data);
+        data = _.extend(this.res.locals, data);
         var html = yield xtplRender(Path.resolve(views, path + '.' + extname), data, option);
         if (!opt || opt.write !== false) {
             this.type = 'html';

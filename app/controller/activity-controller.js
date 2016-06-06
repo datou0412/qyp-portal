@@ -6,6 +6,7 @@ var qypProxy = new DataProxy({
     createActivity: 'Activity.new',
     getDetail: 'Activity.summary',
     signupActivity: 'Activity.signup',
+    getActivityList: 'Activity.get.list',
     //editActivity: 'Activity.edit',
 });
 
@@ -38,7 +39,7 @@ exports.index = function* (next) {
     //    console.log(key)
     //}
     //console.log('index')
-    ctx.locals.activeTab = 'activity';
+    ctx.res.locals.activeTab = 'activity';
     yield next
 };
 
@@ -67,13 +68,38 @@ exports.getDetail = function* (next) {
     if (boardList) {
         data.boardList = boardList.split('|');
     }
-    ctx.locals.activityDetail = data;
+    ctx.res.locals.activityDetail = data;
+    yield next
+};
+
+exports.getActivityList = function* (next) {
+    var ctx = this;
+    var params = {
+        memberId: ctx.query.memberId,
+    }
+    var data = yield new Promise(function(resolve, reject){
+        qypProxy.getActivityList(params)
+            .done(function(data){
+                resolve(data.data);
+            })
+            .error(function(err){
+                ctx.logger.error(err)
+                reject(err);
+            });
+    });
+    console.log(data)
+    ctx.res.locals.activityList = data;
     yield next
 };
 
 
-exports.lists = function* () {
-    yield this.render('activity/lists', {});
+exports.list = function* () {
+    if (this.locals && this.locals.MOBILE_AGENT) {
+        yield this.render('activity/activity-list', {});
+    } else {
+        yield this.render('activity/activity-list', {});
+    }
+
 };
 exports.check = function* () {
     yield this.render('activity/check', {});

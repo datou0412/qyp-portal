@@ -26,30 +26,12 @@
 </div>
 
 <div class="part">
-    <div class="text-center">敬请期待</div>
     {{#if(0)}}
+    <div class="text-center">敬请期待</div>
+    {{else}}
     <div class="clearfix part-header">
-        <h3>热门游记<span class="pull-right"><a href="#" class="more">更多</a></span></h3>
+        <h3>热门活动<span class="pull-right"><a href="#" class="more">更多</a></span></h3>
     </div>
-    <div class=""  style="margin-top: 10px">
-        {{#each(range(0,5))}}
-        <div class="col-md-6 story">
-            <div class="col-md-6 story-img-wrap">
-                <img src="/public/img/bg.JPG" >
-            </div>
-            <div class="col-md-6 story-content-wrap">
-                <div class="story-title">二凢太帅了,卧槽</div>
-                <div class="story-content">
-                    自从三个多月的 中东 与 非洲 之旅结束之后，我便沉下心来寻找工作。10月中旬的一天，我同时收到了两个offer, 第一件事是纠结地二选一，第二件事是预定了往返 云南 ...
-                </div>
-            </div>
-            <div class="story-extra-info clearfix">
-                <span><i class="fa fa-map-marker"></i>云南</span>
-                <span><i class="fa fa-calendar"></i>2015-06-04</span>
-                <span class="pull-right color-red"><i class="fa fa-heart"></i>22</span>
-            </div>
-        </div>
-        {{/each}}
-    </div>
+    {{include ("../activity/list") }}
     {{/if}}
 </div>

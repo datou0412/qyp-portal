@@ -1,9 +1,9 @@
 'use strict';
 
 var Controller = require('../controller/home-controller');
+var activityController = require('../controller/activity-controller');
 
 module.exports = function(app){
     //首页
-    app.get('/', Controller.index);
-    app.get('/activity/list', Controller.index);
+    app.get('/', activityController.getActivityList, Controller.index);
 };

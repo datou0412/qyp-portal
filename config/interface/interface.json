@@ -43,6 +43,15 @@
                 "prod": "http://182.92.105.100:8091/activity/signUp"
             },
             "encoding": "utf8"
+        },
+        {
+            "name": "活动-列表",
+            "id": "Activity.get.list",
+            "type": "http",
+            "urls": {
+                "prod": "http://182.92.105.100:8091/activity/list"
+            },
+            "encoding": "utf8"
         }
     ]
 }

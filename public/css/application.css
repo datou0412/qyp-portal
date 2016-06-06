@@ -103,18 +103,19 @@ body {
 .qyp-content .part .part-header h3 {
   font-size: 20px;
 }
-.qyp-content .part .story {
+.qyp-content .story {
   position: relative;
   margin-bottom: 20px;
   padding-left: 0;
   padding-right: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
-.qyp-content .part .story .story-img-wrap {
+.qyp-content .story .story-img-wrap {
   padding: 0;
   border: 1px solid #ddd;
 }
-.qyp-content .part .story .story-content-wrap {
+.qyp-content .story .story-content-wrap {
   padding: 20px;
   position: absolute;
   top: 0;
@@ -124,18 +125,18 @@ body {
   background-color: #f9f7f6;
   opacity: 0.9;
 }
-.qyp-content .part .story .story-content-wrap .story-title {
+.qyp-content .story .story-content-wrap .story-title {
   font-size: 20px;
   margin-bottom: 10px;
   font-weight: bold;
 }
-.qyp-content .part .story .story-content-wrap .story-content {
+.qyp-content .story .story-content-wrap .story-content {
   font-size: 14px;
 }
-.qyp-content .part .story img {
+.qyp-content .story img {
   width: 100%;
 }
-.qyp-content .part .story .story-extra-info {
+.qyp-content .story .story-extra-info {
   position: absolute;
   top: auto;
   bottom: -80px;
@@ -153,13 +154,13 @@ body {
   /* Safari 和 Chrome */
   -o-transition: bottom 0.3s;
 }
-.qyp-content .part .story .story-extra-info span:first-child {
+.qyp-content .story .story-extra-info span:first-child {
   margin-right: 40px;
 }
-.qyp-content .part .story .story-extra-info span i {
+.qyp-content .story .story-extra-info span i {
   margin-right: 5px;
 }
-.qyp-content .part .story:hover .story-extra-info {
+.qyp-content .story:hover .story-extra-info {
   bottom: 0px;
 }
 .qyp-content form {

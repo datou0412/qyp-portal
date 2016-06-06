@@ -31,9 +31,13 @@ app.context.logger = logger;
 var onerror = require('koa-onerror');
 onerror(app);
 
-app.context.locals = {
-    config: config,
-};
+app.use(function* (next) {
+    var ctx = this;
+    ctx.res.locals = {
+        config: config,
+    }
+    yield next;
+});
 
 //xtemplate对koa的适配
 //var xtplApp = require('xtpl/lib/koa');
@@ -78,6 +82,19 @@ app.use(require('koa-static')('.'));
 //路由
 var router = require('koa-router');
 app.use(router(app));
+
+app.use(function* (next) {
+    var ctx = this;
+    var req = ctx.request;
+    var deviceAgent = req.header['user-agent'].toLowerCase();
+    var agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/);
+    console.log(deviceAgent);
+    if (agentID) {
+        console.log('yes')
+        ctx.locals.MOBILE_AGENT = true;
+    }
+    yield next;
+})
 
 //应用路由
 var homeRouter = require('./app/router/home-router');

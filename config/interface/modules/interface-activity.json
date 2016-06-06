@@ -29,5 +29,14 @@
       "prod": "/activity/signUp"
     },
     "encoding": "utf8"
+  },
+  {
+    "name": "活动-列表",
+    "id": "Activity.get.list",
+    "type": "http",
+    "urls": {
+      "prod": "/activity/list"
+    },
+    "encoding": "utf8"
   }
 ]
